@@ -1,9 +1,6 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[ ]:
-
-
 import cv2
 import os
 from keras.models import load_model
@@ -11,14 +8,14 @@ import numpy as np
 from pygame import mixer
 import time
 mixer.init()
-sound = mixer.Sound(r'D:/Samsung Innovation Campus/final/models/alarm.wav')
+sound = mixer.Sound('alarm/alarm.wav')
 
 face = cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_frontalface_alt.xml')
 leye = cv2.CascadeClassifier(cv2.data.haarcascades +'haarcascade_lefteye_2splits.xml')
 reye = cv2.CascadeClassifier(cv2.data.haarcascades +'haarcascade_righteye_2splits.xml')
 
 lbl=['Close','Open']
-model = load_model(r'D:/Samsung Innovation Campus/final/models/cnnfinal.h5')
+model = load_model('models/cnnfinal.h5')
 cap = cv2.VideoCapture(0)
 font = cv2.FONT_HERSHEY_COMPLEX_SMALL
 count=0
@@ -114,10 +111,3 @@ while(True):
         break
 cap.release()
 cv2.destroyAllWindows()
-
-
-# In[ ]:
-
-
-
-
